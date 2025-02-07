@@ -7,6 +7,9 @@
         <title> ToDo App</title>
         <!-- <a href = "{% url 'new-task' %}" title = ""> + Add New Task</a> -->
         <style type = "text/css" media = "screen">
+            *{
+                margin: 0
+            }
             ul{
                 list-style-type : none;
                 margin: 0;
@@ -31,10 +34,10 @@
                 background-color: lavender;
             }
             table, th,td{
-                border: 1px solid;
-                border-color: bisque;
+                border: 3px solid;
+                border-color: rgba(58, 0, 48, 1.000);
                 border-collapse: collapse;
-                padding: 15px
+                padding: 10px
             }
             a{
                 text-decoration: none;
@@ -52,9 +55,10 @@
 
         </div>
         <div class = container>
-            <form action = "" method = "GET">
-                {%csrf_token}
-                <input type = "text" name = "search_term" placeholder = 
+            <form action = "{% url 'task-search' %}" method = "GET">
+                {%csrf_token%}
+                <input type = "text" name = "search_term" placeholder = "Search here!!">
+                <button type = "submit">Search</button>
             </form>
         </div1>
     </head>

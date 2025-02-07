@@ -29,3 +29,11 @@ class TaskDeleteView(DeleteView):
     template_name = 'taskdelete.html'
     success_url = reverse_lazy('home')
 
+class TaskSearchView(ListView):
+    model = Item
+    template_name = 'home.html'
+    queryset = Item.objects.all()
+
+    def get_queryset(self):
+        result = self.request.GET.get('search_term')
+        return Item.objects.filter(task__icontains = result)
