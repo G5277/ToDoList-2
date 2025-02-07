@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <div class = "container">
+        <form action = "" method = "POST">
+            {%csrf_token%}
+            <p> Are you sure you want to delete {{item.task}} task?</p>
+            <button class = "btn btn-danger ml-2" type  = "submit">
+                Confirm
+            </button>
+        </form>
+
+    </div>
+{% endblock content %}
